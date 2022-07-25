@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Bored</string>
+
+    <!-- Item MyActivity and BoredActivity -->
+    <string name="Atividade">Activity</string>
+    <string name="Acessibilidade">Accessibility</string>
+    <string name="Tipo">Type</string>
+    <string name="Participantes">Participants</string>
+    <string name="preco">Price</string>
+    <string name="Progresso">Progress</string>
+    <string name="inicio">Start</string>
+    <string name="data">Date</string>
+    <string name="fim">End</string>
+
+    <!-- Button BoredActivity and MainActivity -->
+    <string name="novas_atividades">New Activities</string>
+    <string name="minhas_activitidades">My Activities</string>
+    <string name="iniciar_atividade">Start Activities</string>
+    <string name="item_random_bored_activity">random</string>
+    <string name="toast_btStartActivities">Activity started</string>
+
+    <!-- Dialog Progress -->
+    <string name="menssagem_progresso">Select your progress.</string>
+    <string name="em_progresso_dialog_my_activities">InProgress</string>
+    <string name="dialog_myactivity_sim">Yes</string>
+    <string name="dialog_myactivity_nao">No</string>
+    <string name="dialog_myactiviti_cancelado">Canceled</string>
+
+
+    <!-- BoredViewModel -->
+    <string name="progresso_bored_view_model">InProgress</string>
+    <string name="finalizada_dialog_my_activities">Finished</string>
+    <string name="cancelada_dialog_my_activities">Canceled</string>
+
+
+
+    <!-- Array Dialog MyActivities -->
+    <string-array name="Progress">
+        <item>Finished</item>
+        <item>Canceled</item>
+        <item>Delete</item>
+    </string-array>
+
+</resources>
