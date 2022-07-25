@@ -17,7 +17,7 @@ O aplicativo **Bored-API** sugere atividades para o usuário em momentos de téd
 * [MVVM](https://docs.microsoft.com/pt-br/windows/uwp/data-binding/data-binding-and-mvvm) -  Arquitetura de interface
 
 ---
-### ⌨️ Posiveis melhorias 
+### 📌 Posiveis melhorias 
 
 Entidade do Room sendo usada como modelo de resposta API.
 
