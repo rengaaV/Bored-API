@@ -13,160 +13,195 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/_txActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/background_button"
-            android:text="@string/Atividade"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/txActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/Atividade"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/_txActivity" />
-
-        <TextView
-            android:id="@+id/_txAccessibility"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/Acessibilidade"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txActivity" />
-
-        <TextView
-            android:id="@+id/txAccessibility"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/Acessibilidade"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/_txAccessibility"
-            app:layout_constraintTop_toBottomOf="@+id/txActivity" />
-
-        <TextView
-            android:id="@+id/_txType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/Tipo"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txAccessibility" />
-
-        <TextView
-            android:id="@+id/txType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/Tipo"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/txAccessibility"
-            app:layout_constraintTop_toBottomOf="@+id/txAccessibility" />
-
-
-        <TextView
-            android:id="@+id/_txParticipants"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/Participantes"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txType" />
-
-        <TextView
-            android:id="@+id/txParticipants"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/Participantes"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/txType"
-            app:layout_constraintTop_toBottomOf="@+id/txType" />
-
-
-        <TextView
-            android:id="@+id/_txPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/preco"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txParticipants" />
-
-
-        <TextView
-            android:id="@+id/txPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/preco"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/txParticipants"
-            app:layout_constraintTop_toBottomOf="@+id/txParticipants" />
-
-        <Spinner
-            android:id="@+id/spType"
-            android:textColor="@color/background_button"
+            android:id="@+id/txNoData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@string/iniciar_atividade_texto_inicial"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txPrice" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="invisible" />
 
-        <LinearLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spType">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
 
-            <Button
-                android:layout_marginTop="8dp"
-                android:id="@+id/btNewActivities"
+            <TextView
+                android:id="@+id/_txActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/background_button"
-                android:text="@string/novas_atividades"
+                android:text="@string/Atividade"
+                android:textColor="@color/background_button"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spType"
-                tools:ignore="ButtonStyle" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:layout_marginTop="8dp"
-                android:id="@+id/btStartActivities"
+            <TextView
+                android:id="@+id/txActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/background_button"
-                android:text="@string/iniciar_atividade"
-                android:visibility="gone"
-                app:layout_constraintStart_toEndOf="@id/btNewActivities"
-                app:layout_constraintTop_toBottomOf="@+id/spType"
-                tools:ignore="ButtonStyle" />
+                android:layout_marginTop="8dp"
+                android:text="@string/Atividade"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/_txActivity" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/_txAccessibility"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/Acessibilidade"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txActivity" />
+
+            <TextView
+                android:id="@+id/txAccessibility"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/Acessibilidade"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/_txAccessibility"
+                app:layout_constraintTop_toBottomOf="@+id/txActivity" />
+
+            <TextView
+                android:id="@+id/_txType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/Tipo"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txAccessibility" />
+
+            <TextView
+                android:id="@+id/txType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/Tipo"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/txAccessibility"
+                app:layout_constraintTop_toBottomOf="@+id/txAccessibility" />
+
+            <TextView
+                android:id="@+id/_txParticipants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/Participantes"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txType" />
+
+            <TextView
+                android:id="@+id/txParticipants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/Participantes"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/txType"
+                app:layout_constraintTop_toBottomOf="@+id/txType" />
+
+
+            <TextView
+                android:id="@+id/_txPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/preco"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txParticipants" />
+
+
+            <TextView
+                android:id="@+id/txPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/preco"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/txParticipants"
+                app:layout_constraintTop_toBottomOf="@+id/txParticipants" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clActivity">
+
+            <Spinner
+                android:id="@+id/spType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/background_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spType">
+
+                <Button
+                    android:id="@+id/btNewActivities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/background_button"
+                    android:text="@string/novas_atividades"
+
+                    tools:ignore="ButtonStyle" />
+
+                <Button
+                    android:id="@+id/btStartActivities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/background_button"
+                    android:text="@string/iniciar_atividade"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@id/btNewActivities"
+                    app:layout_constraintTop_toBottomOf="@+id/spType"
+                    tools:ignore="ButtonStyle" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

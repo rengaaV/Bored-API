@@ -1,27 +1,26 @@
 package com.vagner.bored.service.local
 
 import android.content.Context
-import androidx.lifecycle.MutableLiveData
-import com.vagner.bored.model.BoredModel
+import com.vagner.bored.model.BoredLocalModel
 
 class BoredRepository(context: Context) {
 
     private val boredDataBase = BoredDataBase.getDataBase(context).boredDao()
 
-    fun insert(bored: BoredModel) {
+    fun insert(bored: BoredLocalModel) {
         return boredDataBase.insert(bored)
     }
 
-    fun getAll(): List<BoredModel> {
+    fun getAll(): List<BoredLocalModel> {
         return boredDataBase.getAll()
     }
 
-    fun delete(bored: BoredModel) {
+    fun delete(bored: BoredLocalModel) {
         return boredDataBase.delete(bored)
 
     }
 
-    fun update(bored: BoredModel) {
+    fun update(bored: BoredLocalModel) {
         return boredDataBase.update(bored)
     }
 

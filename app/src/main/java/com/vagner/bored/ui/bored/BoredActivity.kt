@@ -44,9 +44,9 @@ class BoredActivity : AppCompatActivity(), View.OnClickListener,
             R.id.btNewActivities -> {
                 val selectedItem = binding.spType.selectedItem
                 if (selectedItem == getString(R.string.item_random_bored_activity)) {
-                    viewModel.getAllTypes(type.random())
+                    viewModel.getAllTypes()
                 } else {
-                    viewModel.getAllTypes(selectedItem.toString())
+                    viewModel.getType(selectedItem.toString())
                 }
             }
             R.id.btStartActivities -> {
@@ -77,6 +77,8 @@ class BoredActivity : AppCompatActivity(), View.OnClickListener,
         viewModel.callSuccess.observe(this) {
             if (it != null) {
                 binding.btStartActivities.visibility = View.VISIBLE
+                binding.clActivity.visibility = View.VISIBLE
+                binding.txNoData.visibility = View.INVISIBLE
             }
             binding.txActivity.text = it.activity
             binding.txAccessibility.text = it.accessibility.toString()

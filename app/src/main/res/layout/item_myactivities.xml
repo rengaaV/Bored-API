@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/clMyActivity"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/background"
     android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/imgDelete"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_delete_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.983"
+        app:layout_constraintStart_toEndOf="@+id/txType"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/_txActivity"
@@ -26,7 +38,7 @@
         android:text="@string/Atividade"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:textStyle="italic"
+        android:textStyle="italic|bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/_txActivity" />
@@ -116,26 +128,11 @@
         app:layout_constraintTop_toBottomOf="@+id/txParticipants" />
 
     <TextView
-        android:id="@+id/txProgress"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/holo_green_light"
-        android:gravity="center"
-        android:text="@string/Progresso"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txEnd" />
-
-
-    <TextView
         android:id="@+id/_txData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/inicio"
         android:layout_marginTop="16dp"
+        android:text="@string/inicio"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold|italic"
@@ -146,8 +143,8 @@
         android:id="@+id/txData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/data"
         android:layout_marginTop="16dp"
+        android:text="@string/data"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold|italic"
@@ -158,8 +155,8 @@
         android:id="@+id/_txEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fim"
         android:layout_marginTop="16dp"
+        android:text="@string/fim"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold|italic"
@@ -170,13 +167,27 @@
         android:id="@+id/txEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fim"
         android:layout_marginTop="16dp"
+        android:text="@string/fim"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="@+id/txData"
         app:layout_constraintTop_toBottomOf="@+id/txData" />
+
+    <TextView
+        android:id="@+id/txProgress"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/holo_blue_light"
+        android:gravity="center"
+        android:text="@string/Progresso"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txEnd" />
 
     <View
         android:layout_width="match_parent"

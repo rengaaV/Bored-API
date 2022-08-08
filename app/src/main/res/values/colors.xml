@@ -7,8 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--Color layout-->
     <color name="background">#D5D3D6</color>
     <color name="background_button">#5298F2</color>
+
+    <!--Colors progress -->
+    <color name="neon_green">#2EFA34</color>
+    <color name="sunny">#FAF371</color>
+    <color name="red">#F52912</color>
 
 
 </resources>

@@ -8,5 +8,8 @@ import retrofit2.http.Query
 interface ServiceApi {
 
     @GET("api/activity/")
-    fun getAllTypes(@Query("type") type : String) : Call<BoredModel>
+    fun getType(@Query("type") type: String): Call<BoredModel>
+
+    @GET("api/activity/")
+    fun getAllTypes(): Call<BoredModel>
 }
