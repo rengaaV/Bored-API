@@ -1,21 +1,21 @@
 package com.vagner.bored.service.local
 
 import androidx.room.*
-import com.vagner.bored.model.BoredModel
+import com.vagner.bored.model.BoredLocalModel
 
 @Dao
 interface BoredDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(boredModel: BoredModel)
+    fun insert(boredModel: BoredLocalModel)
 
     @Query("SELECT * FROM bored ORDER BY id")
-    fun getAll(): List<BoredModel>
+    fun getAll(): List<BoredLocalModel>
 
     @Delete
-    fun delete(boredModel: BoredModel)
+    fun delete(boredModel: BoredLocalModel)
 
     @Update
-    fun update(boredModel: BoredModel)
+    fun update(boredModel: BoredLocalModel)
 
 }

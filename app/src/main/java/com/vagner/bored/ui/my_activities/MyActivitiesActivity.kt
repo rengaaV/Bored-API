@@ -1,23 +1,25 @@
 package com.vagner.bored.ui.my_activities
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.vagner.bored.R
 import com.vagner.bored.adapter.MyActivitiesAdapter
 import com.vagner.bored.databinding.ActivityMyactivitiesBinding
-import com.vagner.bored.model.BoredModel
-import java.util.*
+import com.vagner.bored.model.BoredLocalModel
+import com.vagner.bored.model.ProgressColor
+import com.vagner.bored.util.Date
 
 class MyActivitiesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMyactivitiesBinding
-    private val adapter = MyActivitiesAdapter {
-        listener(it)
-    }
+
+    private lateinit var adapter: MyActivitiesAdapter
+
     private lateinit var viewModel: MyActivitiesViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMyactivitiesBinding.inflate(layoutInflater)
@@ -25,37 +27,67 @@ class MyActivitiesActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel = ViewModelProvider(this).get(MyActivitiesViewModel::class.java)
-        binding.rvMyActivities.adapter = adapter
-        binding.rvMyActivities.layoutManager = LinearLayoutManager(this)
+
+        listStatusChanged()
+        setupAdapter()
         observe()
     }
 
-    private fun listener(bored: BoredModel) {
-        val date = Calendar.getInstance().time
-        val data = date.toString()
+    private fun setupAdapter() {
+        adapter = MyActivitiesAdapter(
+            onClickListener = { boredToChange ->
+                showBoredProgress(boredToChange)
+            },
+            onClickDelete = { boredToConfirmDelete ->
+                showDeleteConfirmation(boredToConfirmDelete) { boredToDelete ->
+                    viewModel.delete(boredToDelete)
+                    listStatusChanged()
+                }
+            }
+        )
+        binding.rvMyActivities.adapter = adapter
+    }
+
+    private fun showDeleteConfirmation(
+        bored: BoredLocalModel,
+        onConfirm: (BoredLocalModel) -> Unit
+    ) {
+
+        val builder = AlertDialog.Builder(this)
+
+        builder.apply {
+            setTitle(getString(R.string.confirmacao))
+            setMessage("Do you want to delete the Activity \"${bored.activity}\"?")
+            setPositiveButton(getString(R.string.sim)) { _, _ ->
+                onConfirm(bored)
+            }
+            setNegativeButton(getString(R.string.nao)) { dialog, _ ->
+                dialog.dismiss()
+            }
+        }
+        builder.show()
+    }
+
+    private fun showBoredProgress(bored: BoredLocalModel) {
         val progress = R.array.Progress
         val dialog = AlertDialog.Builder(this@MyActivitiesActivity)
             .setTitle(getString(R.string.menssagem_progresso))
             .setSingleChoiceItems(progress, -1) { dialog, position ->
-                bored.progress = position.toString()
                 when (position) {
                     0 -> {
-                        bored.progress = getString(R.string.finalizada_dialog_my_activities)
-                        bored.end = data
+                        bored.progress = ProgressColor.FINISHED
+                        bored.end = Date.setDate()
                     }
                     1 -> {
-                        bored.progress = getString(R.string.cancelada_dialog_my_activities)
+                        bored.progress = ProgressColor.CANCELED
                         bored.end = getString(R.string.dialog_myactiviti_cancelado)
-                    }
-                    2 -> {
-                        viewModel.delete(bored)
                     }
                 }
             }.setPositiveButton(getString(R.string.dialog_myactivity_sim)) { _, _ ->
                 viewModel.update(bored)
                 viewModel.getAll()
-            }.setNegativeButton(getString(R.string.dialog_myactivity_nao)) { _, _ ->
-                viewModel.getAll()
+            }.setNegativeButton(getString(R.string.dialog_myactivity_nao)) { dialog, _ ->
+                dialog.dismiss()
             }
         dialog.show()
     }
@@ -66,8 +98,16 @@ class MyActivitiesActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
+    private fun listStatusChanged() {
         viewModel.getAll()
+        if (viewModel.listAllBored.value?.isEmpty() == true) {
+            binding.rvMyActivities.visibility = View.INVISIBLE
+            binding.txNoDataMyActivities.visibility = View.VISIBLE
+
+        } else {
+            binding.rvMyActivities.visibility = View.VISIBLE
+            binding.txNoDataMyActivities.visibility = View.INVISIBLE
+        }
     }
+
 }

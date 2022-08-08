@@ -11,6 +11,8 @@
     <string name="inicio">Start</string>
     <string name="data">Date</string>
     <string name="fim">End</string>
+    <string name="iniciar_atividade_texto_inicial">Start an activity</string>
+    <string name="sem_atividades">You have no activity.</string>
 
     <!-- Button BoredActivity and MainActivity -->
     <string name="novas_atividades">New Activities</string>
@@ -26,19 +28,20 @@
     <string name="dialog_myactivity_nao">No</string>
     <string name="dialog_myactiviti_cancelado">Canceled</string>
 
+    <!-- Dialog Delete -->
+    <string name="confirmacao">Confirmation</string>
+    <string name="sim">Yes</string>
+    <string name="nao">No</string>
 
     <!-- BoredViewModel -->
     <string name="progresso_bored_view_model">InProgress</string>
     <string name="finalizada_dialog_my_activities">Finished</string>
     <string name="cancelada_dialog_my_activities">Canceled</string>
 
-
-
     <!-- Array Dialog MyActivities -->
     <string-array name="Progress">
         <item>Finished</item>
         <item>Canceled</item>
-        <item>Delete</item>
     </string-array>
 
 </resources>
