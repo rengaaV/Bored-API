@@ -19,7 +19,7 @@ O aplicativo **Bored-API** sugere atividades para o usuário em momentos de téd
 ---
 ### 📌 Posiveis melhorias 
 
-Entidade do Room sendo usada como modelo de resposta API / "Já foi feito na versão v1."
+Entidade do Room sendo usada como modelo de resposta API / "Já foi feito na versão final."
 
 ---
 ⌨️ com ❤️ por [Vagner Bortolami](https://github.com/rengaaV) 😊# Bored-API
